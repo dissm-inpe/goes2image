@@ -6,7 +6,4 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
-__author__ = 'Douglas Uba'
-__email__  = 'douglas.uba@inpe.br'
-
 # TODO

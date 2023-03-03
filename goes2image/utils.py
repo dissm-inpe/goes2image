@@ -6,10 +6,9 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
-__author__ = 'Douglas Uba'
-__email__  = 'douglas.uba@inpe.br'
-
 import colorsys
+import re
+from datetime import datetime
 
 import numpy as np
 from matplotlib.colors import LinearSegmentedColormap
@@ -20,7 +19,19 @@ def getGeoT(extent, nlines, ncols):
     resy = (extent[3] - extent[1]) / nlines
     return [extent[0], resx, 0, extent[3] , 0, -resy]
 
+def extractDate(filename, regex, format):
+    # Extract date strings
+    dates_strings = re.findall(regex, filename)
+    for s in dates_strings:
+        # Build date object
+        date = datetime.strptime(s, format)
+        # Return now. Detail: considering first found date
+        return date
+    
 def LoadCPT(path):
+    # From matplotlib mailling list.
+    # https://discourse.matplotlib.org/t/how-to-define-a-colormap-dynamically/2320
+    # Author: James Boyle
     try:
         f = open(path)
     except:
@@ -99,3 +110,16 @@ def LoadCPT(path):
     cmap = LinearSegmentedColormap('cpt', cpt)  
 
     return cmap
+
+def fwd_scale_offset(data, scale, offset):
+    return data.astype(np.float32) * scale + offset
+
+def back_scale_offset(data, scale, offset):
+    return ((data - offset)/scale).astype(np.uint16)
+
+def rescale(data, vmin, vmax, gamma=1.0):
+    data = np.where(data < vmin, vmin, data)
+    data = np.where(data > vmax, vmax, data)
+    data = 255 * (((data - vmin) / (vmax - vmin)) ** (1.0 / gamma))
+    data = np.asarray(data, dtype=np.uint8)
+    return data
