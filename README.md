@@ -97,7 +97,9 @@ Here are some examples of using the tool.
 
 * Channel 13 image generation, using default configuration parameters, full-disk sector.
 ```
-goes2image.py --input OR_ABI-L2-CMIPF-M6C13_G16_s20221750000204_e20221750009523_c20221750010006.nc --product ch13 --output ./examples/ch13.png 
+goes2image.py --input OR_ABI-L2-CMIPF-M6C13_G16_s20221750000204_e20221750009523_c20221750010006.nc
+              --product ch13
+              --output ./examples/ch13.png 
 ```
 Result:
 
@@ -105,7 +107,9 @@ Result:
 
 * Channel 13 image generation, using default configuration parameters for **NOAA IR4AVHRR6 colormap**, full-disk sector.
 ```
-goes2image.py --input OR_ABI-L2-CMIPF-M6C13_G16_s20221750000204_e20221750009523_c20221750010006.nc --product ch13_cpt_IR4AVHRR6 --output ./examples/ch13-cmap.png 
+goes2image.py --input OR_ABI-L2-CMIPF-M6C13_G16_s20221750000204_e20221750009523_c20221750010006.nc
+              --product ch13_cpt_IR4AVHRR6
+              --output ./examples/ch13-cmap.png 
 ```
 Result:
 
