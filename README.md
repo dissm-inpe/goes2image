@@ -115,6 +115,16 @@ Result:
 
 <img src="https://raw.githubusercontent.com/dissm-inpe/goes2image/main/examples/ch13-cmap.png" width="256">
 
+* Channel 13 image generation, using default configuration parameters for **Legacy DSA/INPE colormap**, full-disk sector.
+```
+goes2image.py --input OR_ABI-L2-CMIPF-M6C13_G16_s20221750000204_e20221750009523_c20221750010006.nc
+              --product ch13_cpt_DSA
+              --output ./examples/ch13-cmap-inpe.png 
+```
+Result:
+
+<img src="https://raw.githubusercontent.com/dissm-inpe/goes2image/main/examples/ch13-cmap-inpe.png" width="256">
+
 ## License
 Copyright (C) INPE.
 
