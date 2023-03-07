@@ -86,6 +86,8 @@ options:
                         Output resolution (remap use)
   --output OUTPUT, -o OUTPUT
                         Path to output file that will be generated
+   --driver DRIVER, -d DRIVER
+                        GDAL driver name that will be used to generate final result
   --version, -v         show program's version number and exit
 ````
 
